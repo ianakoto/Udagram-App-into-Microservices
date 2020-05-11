@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: udagrambucket-dev
+  AWS_MEDIA_BUCKET: udagrambucket-dev
   AWS_PROFILE: default
   AWS_REGION: us-east-2
   JWT_SECRET: 32434534fwegfwe23t54hgrgevsmyt
-  POSTGRESS_DB: udagramdb
+  POSTGRESS_DATABASE: udagramdb
   POSTGRESS_HOST: udagramdb.cdkb1tmivzbl.us-east-2.rds.amazonaws.com
   URL: http://localhost:8100  
 metadata:
