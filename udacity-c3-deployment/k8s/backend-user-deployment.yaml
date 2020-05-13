@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -6,13 +6,16 @@ metadata:
   name: backend-user
 spec:
   replicas: 2
+  selector:
+      matchLabels:
+        service: backend-user
   template:
     metadata:
       labels:
         service: backend-user
     spec:
       containers:
-      - image: scheele/udacity-restapi-user
+      - image: ian0549/udacity-restapi-user
         name: backend-user 
         imagePullPolicy: Always  
         resources:
@@ -33,11 +36,11 @@ spec:
             configMapKeyRef:
               name: env-config
               key: JWT_SECRET
-        - name: POSTGRESS_DB
+        - name: POSTGRESS_DATABASE
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: POSTGRESS_DB
+              key: POSTGRESS_DATABASE
         - name: POSTGRESS_HOST
           valueFrom:
             configMapKeyRef:
